@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MyComponent from './comp/MyComponent';
 
 class Counter extends Component {
   //호출된 후에 선언된 것인지 아닌지 확인할 수 없음
@@ -37,17 +38,34 @@ class Counter extends Component {
             // this.props.number++; -> props는 변경할 수 없음!
 
             //this.number++;
-            this.setState({ number: number + 1 }); // 내부적으로 render() 함수를 비동기로 호출한다
-            this.setState({ number: number + 1 });
+
+            // this.setState({ number: number + 1 }); // 내부적으로 render() 함수를 비동기로 호출한다
+            // this.setState({ number: number + 1 });
             // 비동기이기 때문에 리턴을 기다리지 않고 다음 라인이 바로 실행된다
             // 따라서 number + 1에서의 number의 값이 모두 같아 결과값이 +1만큼만 증가하게 된다
             // 데이터에 변화를 주려면 콜백함수를 이용해야 한다
+
+            this.setState((prevState) => {
+              // prevState는 이전 상태값을 받는 파라미터
+              // 동기화 루틴으로 state 값을 변경한다
+              return { number: prevState.number + 1 };
+            });
+            console.log('버튼 클릭.. 증가 후1 : ', this.state.number);
+
+            this.setState((prevState) => {
+              // 동기화 루틴으로 state 값을 변경한다
+              return { number: prevState.number + 1 };
+            });
+            // 마지막에 비동기로 render() 함수를 호출한다
+            console.log('버튼 클릭.. 증가 후2 : ', this.state.number);
 
             // console.log('버튼 클릭.. 증가 후 : ', this.number);
           }}
         >
           +1 증가
         </button>
+        <MyComponent name="홍길동" age={this.state.number} />
+        {/* Counter가 number prop을 변경하면 하위 컴포넌트인 MyComponent의 age값도 같이 변한다 */}
       </div>
     );
   }
