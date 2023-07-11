@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 
 class MyComponent extends Component {
+  constructor(props) {
+    // Component 안에 props를 받을 수  있는 변수가 이미 있다
+    // 따라서 super를 통해 값을 보내줘야 한다
+    // 값을 Component에 보내줘야 실제 객체가 만들어진다
+    super(props);
+  }
+
   render() {
-    return <div>나의 첫번째 컴포넌트</div>;
+    return (
+      <>
+        <div>나의 첫번째 컴포넌트 {this.props.name}</div>
+        <div>나이 : {this.props.age}</div>
+      </>
+    );
   }
 }
 
