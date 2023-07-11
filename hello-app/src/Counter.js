@@ -5,24 +5,31 @@ class Counter extends Component {
   //그래서 이렇게 쓰면 안됨
   // number = this.props.number;
 
+  /*
   constructor(props) {
     super(props);
     // 데이터를 별도로 관리하기 위해 멤버변수를 만들었다
     // -> 이 변수의 소유권을 가진다
     // this.number = props.number;
     // 하지만 위의 방법도 디스플레이에 영향을 끼치지 못하기 때문에 state를 사용한다
-    this.state = {
-      number: props.number,
-    };
+    
   }
+   */
+
+  state = {
+    number: 0,
+    fixedNumber: 0,
+  };
 
   render() {
     // 비구조화 할당 문법
-    const { number } = this.state;
+    const { number, fixedNumber } = this.state;
+    console.log('랜더링~');
     return (
       <div>
         {/*<h1>{this.props.number}</h1>*/}
         <h1>{number}</h1>
+        <h1>변경되지 않는 값 : {fixedNumber}</h1>
         <button
           onClick={() => {
             // console.log('버튼 클릭.. 증가 전 : ', this.number);

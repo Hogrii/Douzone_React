@@ -7,7 +7,7 @@ class App5 extends Component {
   render() {
     return (
       <div className="react">
-        <Counter number={1} />
+        <Counter />
       </div>
     );
   }
