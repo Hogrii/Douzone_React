@@ -15,10 +15,11 @@ class App4 extends Component {
       <div className="react">
         이름 : {this.name}
         <MyComponent name={this.name} age="10" />
-        <MyComponent2 name={this.name} age="20" />
+        <MyComponent2 name={'100'} age="20" />
+        <hr></hr>
         자식등장
-        <MyComponent2 age="20" />
-        <MyComponent2 age="20">
+        <MyComponent name={'20'} age="20" />
+        <MyComponent2 age="20" favoriteNumber={701}>
           [[[[[[
           <MyComponent age="15" />
           내용]]]]]]

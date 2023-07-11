@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function MyComponent2(props) {
   // props의 값은 변경 할 수 없음
@@ -29,4 +30,12 @@ export default function MyComponent2(props) {
 MyComponent2.defaultProps = {
   name: '기본이름',
 };
+
+// props의 타입으 확인해준다
+MyComponent2.propTypes = {
+  name: PropTypes.string,
+  // isRequired는 해당 값이 들어올 수 있게 강제한다
+  favoriteNumber: PropTypes.number.isRequired,
+};
+
 // export default MyComponent2;
