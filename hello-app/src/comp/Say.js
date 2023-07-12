@@ -25,6 +25,10 @@ const Say = () => {
       <button onClick={onClickEnter}>입장</button>
       <button onClick={onClickLeave}>퇴장</button>
       <h1 style={{ color }}>{message}</h1>
+      {/* 
+        color라는 key값 안에 black이라는 값이 들어있기 때문에 적용이 되는 것
+        따라서 {color}는 {color: black}이 되는 것이다..
+        */}
 
       <button style={{ color: 'red' }} onClick={onClickColorRed}>
         빨간색
