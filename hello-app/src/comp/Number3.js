@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
 const Number3 = () => {
+  // 클래스 컴포넌트로 바꾸기
+  // useState -> setState
+  // 기본값 -> 1,2,3
+
   //   const [a, setA] = useState(1);
   //   const [b, setB] = useState(2);
   //   const [c, setC] = useState(3);
