@@ -7,6 +7,7 @@ import Counter2 from './Counter2';
 import Say from './Say';
 import Number3 from './Number3';
 import Number3_Class from './Number3_Class';
+import EventPractice from './EventPractice';
 
 export {
   MyComponent,
@@ -18,4 +19,5 @@ export {
   Say,
   Number3,
   Number3_Class,
+  EventPractice,
 };
