@@ -5,6 +5,7 @@ import MyStateComponent from './MyStateComponent';
 import Counter from './Counter';
 import Counter2 from './Counter2';
 import Say from './Say';
+import Number3 from './Number3';
 
 export {
   MyComponent,
@@ -14,4 +15,5 @@ export {
   Counter,
   Counter2,
   Say,
+  Number3,
 };
