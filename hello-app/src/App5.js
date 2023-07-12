@@ -1,13 +1,16 @@
 import { Component } from 'react';
 import './App.css';
 
-import Counter from './Counter';
+import { Counter, Counter2 } from './comp';
 
 class App5 extends Component {
   render() {
     return (
       <div className="react">
-        <Counter />
+        {/*
+          <Counter />
+         */}
+        <Counter2 />
       </div>
     );
   }
