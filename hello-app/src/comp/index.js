@@ -8,6 +8,7 @@ import Say from './Say';
 import Number3 from './Number3';
 import Number3_Class from './Number3_Class';
 import EventPractice from './EventPractice';
+import EventPractice_func from './EventPractice_func';
 
 export {
   MyComponent,
@@ -20,4 +21,5 @@ export {
   Number3,
   Number3_Class,
   EventPractice,
+  EventPractice_func,
 };
