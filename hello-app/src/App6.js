@@ -5,7 +5,7 @@ import Say from './comp/Say';
 import Number3 from './comp/Number3';
 import Number3_Class from './comp/Number3_Class';
 
-class App5 extends Component {
+class App6 extends Component {
   render() {
     return (
       <div className="react">
@@ -17,4 +17,4 @@ class App5 extends Component {
   }
 }
 
-export default App5;
+export default App6;
