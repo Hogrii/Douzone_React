@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MyComponent from './comp/MyComponent';
+import MyComponent from './MyComponent';
 
 class Counter extends Component {
   //호출된 후에 선언된 것인지 아닌지 확인할 수 없음
