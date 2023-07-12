@@ -6,9 +6,9 @@ import Counter from './Counter';
 import Counter2 from './Counter2';
 import Say from './Say';
 import Number3 from './Number3';
-import Number3_Class from './Number3_Class';
+import Number3Class from './Number3Class';
 import EventPractice from './EventPractice';
-import EventPractice_func from './EventPractice_func';
+import EventPracticeFunc from './EventPracticeFunc';
 
 export {
   MyComponent,
@@ -19,7 +19,7 @@ export {
   Counter2,
   Say,
   Number3,
-  Number3_Class,
+  Number3Class,
   EventPractice,
-  EventPractice_func,
+  EventPracticeFunc,
 };
