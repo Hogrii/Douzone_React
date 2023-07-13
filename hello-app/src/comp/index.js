@@ -12,6 +12,7 @@ import EventPractice2 from './EventPractice2';
 import EventPracticeFunc from './EventPracticeFunc';
 import ScrollBox from './ScrollBox';
 import ScrollBoxCreateRef from './ScrollBoxCreateRef';
+import IterationSample from './IterationSample';
 
 export {
   MyComponent,
@@ -28,4 +29,5 @@ export {
   EventPracticeFunc,
   ScrollBox,
   ScrollBoxCreateRef,
+  IterationSample,
 };
