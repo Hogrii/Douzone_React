@@ -55,24 +55,24 @@ class EventPractice extends Component {
       alert('메시지 입력해줘~');
       e.preventDefault();
       // 원시적인 자바스크립트 코드
-      let message = document.querySelector("input[name='userid']");
-      message.focus();
+      // let message = document.querySelector("input[name='userid']");
+      this.message.focus();
       return false;
     }
 
     if (this.state.username === '') {
       alert('이름 입력해줘~');
       e.preventDefault();
-      let username = document.querySelector("input[name='username']");
-      username.focus();
+      // let username = document.querySelector("input[name='username']");
+      this.username.focus(); // this.username => ref={(username) => (this.username = username)}
       return false;
     }
 
     if (this.state.userid === '') {
       alert('아이디 입력해줘~');
       e.preventDefault();
-      let userid = document.querySelector("input[name='userid']");
-      userid.focus();
+      // let userid = document.querySelector("input[name='userid']");
+      this.userid.focus();
       return false;
     }
   };
@@ -95,6 +95,7 @@ class EventPractice extends Component {
             onChange={this.handlerChange}
             // onKeyDown={this.handlerKeyDown}
             value={this.state.message}
+            ref={(message) => (this.message = message)}
           />
           <br />
           사용자명 :{' '}
@@ -105,6 +106,8 @@ class EventPractice extends Component {
             onChange={this.handlerChange}
             // onKeyDown={this.handlerKeyDown}
             value={this.state.username}
+            // ref={(ref) => (this.username = ref)} // (ref)는 자기자신(input태그), input태그를 가지고 와서 username(멤버변수)에 집어넣는다
+            ref={(username) => (this.username = username)} // let username = document.querySelector("input[name='username']"); 대체
           />
           <br />
           아이디 :{' '}
@@ -115,6 +118,7 @@ class EventPractice extends Component {
             onChange={this.handlerChange}
             // onKeyDown={this.handlerKeyDown}
             value={this.state.userid}
+            ref={(userid) => (this.userid = userid)}
           />
           <br />
           비밀번호 :{' '}
@@ -125,6 +129,7 @@ class EventPractice extends Component {
             onChange={this.handlerChange}
             // onKeyDown={this.handlerKeyDown}
             value={this.state.passwd}
+            ref={(passwd) => (this.passwd = passwd)}
           />
           <h2>메시지 : {this.state.message}</h2>
           <h2>사용자 : {this.state.username}</h2>
