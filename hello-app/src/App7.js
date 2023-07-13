@@ -8,7 +8,7 @@ class App7 extends Component {
   render() {
     return (
       <div className="react">
-        {/* <EventPractice /> */}
+        <EventPractice />
         <EventPracticeFunc />
       </div>
     );
