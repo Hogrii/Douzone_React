@@ -8,6 +8,7 @@ import Say from './Say';
 import Number3 from './Number3';
 import Number3Class from './Number3Class';
 import EventPractice from './EventPractice';
+import EventPractice2 from './EventPractice2';
 import EventPracticeFunc from './EventPracticeFunc';
 
 export {
@@ -21,5 +22,6 @@ export {
   Number3,
   Number3Class,
   EventPractice,
+  EventPractice2,
   EventPracticeFunc,
 };
