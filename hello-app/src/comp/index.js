@@ -13,6 +13,7 @@ import EventPracticeFunc from './EventPracticeFunc';
 import ScrollBox from './ScrollBox';
 import ScrollBoxCreateRef from './ScrollBoxCreateRef';
 import IterationSample from './IterationSample';
+import IterationSampleClass from './IterationSampleClass';
 
 export {
   MyComponent,
@@ -30,4 +31,5 @@ export {
   ScrollBox,
   ScrollBoxCreateRef,
   IterationSample,
+  IterationSampleClass,
 };
