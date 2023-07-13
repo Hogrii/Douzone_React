@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 class ScrollBoxCreateRef extends Component {
+  outerBox = React.createRef();
+
   scrollToBottom = () => {
-    this.outerBox.scrollTop =
-      this.outerBox.scrollHeight - this.outerBox.clientHeight;
+    this.outerBox.current.scrollTop =
+      this.outerBox.current.scrollHeight - this.outerBox.current.clientHeight;
   };
 
   render() {
@@ -24,7 +26,7 @@ class ScrollBoxCreateRef extends Component {
 
     return (
       <>
-        <div style={style} ref={(ref) => (this.outerBox = ref)}>
+        <div style={style} ref={this.outerBox}>
           <div style={innerStyle}></div>
         </div>
         <button onClick={(e) => this.scrollToBottom()}>임시 맨 밑으로</button>
