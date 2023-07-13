@@ -72,6 +72,7 @@ class EventPractice2 extends Component {
   };
 
   add(a, b) {
+    console.log(a + b);
     return a + b;
   }
 

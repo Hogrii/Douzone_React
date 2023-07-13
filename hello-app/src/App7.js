@@ -13,7 +13,9 @@ class App7 extends Component {
         <EventPractice2 ref={(ref) => (this.eventObj1 = ref)} />
         <EventPractice2 ref={(ref) => (this.eventObj2 = ref)} />
         <EventPracticeFunc />
-        <button onClick={(e) => this.eventObj1.add(10, 20)}></button>
+        <button onClick={(e) => this.eventObj1.add(10, 20)}>
+          나만의작은버튼
+        </button>
       </div>
     );
   }
