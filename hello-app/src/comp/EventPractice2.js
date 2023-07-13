@@ -71,6 +71,10 @@ class EventPractice2 extends Component {
     }
   };
 
+  add(a, b) {
+    return a + b;
+  }
+
   render() {
     return (
       <div>
