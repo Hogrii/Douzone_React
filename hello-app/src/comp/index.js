@@ -10,6 +10,7 @@ import Number3Class from './Number3Class';
 import EventPractice from './EventPractice';
 import EventPractice2 from './EventPractice2';
 import EventPracticeFunc from './EventPracticeFunc';
+import ScrollBox from './ScrollBox';
 
 export {
   MyComponent,
@@ -24,4 +25,5 @@ export {
   EventPractice,
   EventPractice2,
   EventPracticeFunc,
+  ScrollBox,
 };
