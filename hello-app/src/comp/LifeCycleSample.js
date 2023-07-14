@@ -52,7 +52,7 @@ class LifeCycleSample extends Component {
     // render()  함수에서 만들어진 결과물을 브라우저에 실제 반영하기 직전에 호출
     console.log('getSnapshotBeforeUpdate() ...');
     if (prevProps.color !== this.props.color) {
-      return this.myRef.style.color;
+      return this.myRef.style.color; // return이 되면 componentDidUpdate의 snapshot 파라미터로 들어간다
     }
     return null;
   }
@@ -83,10 +83,12 @@ class LifeCycleSample extends Component {
 
     return (
       <div>
+        {/* {this.props.missing.value} */}
         <h1 style={style} ref={(ref) => (this.myRef = ref)}>
           {this.state.number}
         </h1>
-        <p>color: {this.state.color}</p>
+        <p>부모 color: {this.props.color}</p>
+        <p>자식 color: {this.state.color}</p>
         <button onClick={this.handlerIncClick}>더하기</button>
       </div>
     );
