@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-const IterationSampleClass = () => {
-  // const names = ['눈사람', '얼음', '눈', '바람'];
-  // const nameList = names.map(
-  //   (
-  //     name, // value
-  //     idx // index
-  //   ) => (
-  //     <li key={idx}>
-  //       {idx} : {name}
-  //     </li>
-  //   )
-  // );
-
-  const [inputText, setInputText] = useState('');
-
-  // State를 통해 데이터를 관리하면 추가와 삭제가 쉽다
-  const [names, setNames] = useState([
-    { id: 1, text: '눈사람' },
-    { id: 2, text: '얼음' },
-    { id: 3, text: '눈' },
-    { id: 4, text: '바람' },
-  ]);
-
-  const handlerRemove = (id) => {
-    console.log(id);
-    setNames(names.filter((item) => item.id !== id));
+class IterationSampleClass extends Component {
+  state = {
+    names: [
+      { id: 1, text: '눈사람' },
+      { id: 2, text: '얼음' },
+      { id: 3, text: '눈' },
+      { id: 4, text: '바람' },
+    ],
+    inputText: '',
   };
 
-  const nameList = names.map((item) => (
-    <li key={item.id} onDoubleClick={() => handlerRemove(item.id)}>
-      {item.id} : {item.text}
-      <button onClick={() => handlerRemove(item.id)}>x</button>
-    </li>
-  ));
+  handlerRemove = (id) => {
+    this.setState({ names: this.state.names.filter((item) => item.id !== id) });
+  };
 
-  const handlerSubmit = (e) => {
+  handlerSubmit = (e) => {
     e.preventDefault();
-    console.log('입력된 값 : ' + inputText);
-    setNames(names.concat({ id: names.length + 1, text: inputText }));
-    setInputText('');
+    this.setState({
+      names: this.state.names.concat({
+        id: this.state.names.length + 1,
+        text: this.state.inputText,
+      }),
+    });
+
+    this.setState({ inputText: '' });
     return false;
   };
 
-  const handlerChange = (e) => {
-    setInputText(e.target.value);
+  handlerChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  return (
-    <div>
+  render() {
+    let nameList = this.state.names.map((item) => (
+      <li key={item.id} onDoubleClick={() => this.handlerRemove(item.id)}>
+        {item.id} : {item.text}
+        <button onClick={() => this.handlerRemove(item.id)}>x</button>
+      </li>
+    ));
+    return (
       <div>
-        <form name="myForm" onSubmit={handlerSubmit}>
-          <input type="text" value={inputText} onChange={handlerChange}></input>
-          <button type="submit">추가</button>
-        </form>
+        <div>
+          <form name="myForm" onSubmit={this.handlerSubmit}>
+            <input
+              type="text"
+              name="inputText"
+              value={this.state.inputText}
+              onChange={this.handlerChange}
+            ></input>
+            <button type="submit">추가</button>
+          </form>
+        </div>
+        <ul>{nameList}</ul>
       </div>
-      <ul>{nameList}</ul>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default IterationSampleClass;
