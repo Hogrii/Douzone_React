@@ -14,6 +14,8 @@ import ScrollBox from './ScrollBox';
 import ScrollBoxCreateRef from './ScrollBoxCreateRef';
 import IterationSample from './IterationSample';
 import IterationSampleClass from './IterationSampleClass';
+import ListComponent from './ListComponent';
+import InputComponent from './InputComponent';
 
 export {
   MyComponent,
@@ -32,4 +34,6 @@ export {
   ScrollBoxCreateRef,
   IterationSample,
   IterationSampleClass,
+  ListComponent,
+  InputComponent,
 };
