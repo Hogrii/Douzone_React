@@ -5,6 +5,7 @@ function model(state, action) {
   // 처리 루틴 여러개가 될 수 있음
   // state는 관리하는 상태 변수
   // action은 명령,, 처리 루틴 여러개를 구분하는 키(key)
+  // Reducer를 사용하면 데이터 관리 루틴을 모두 모델로 빼낼 수 있다(CRUD 관련 모든 작업)
   switch (action.type) {
     case 'incValue': // 명령
       return { value: state.value + 1 }; // 동작
