@@ -18,7 +18,7 @@ const App11 = () => {
   };
 
   const handlerInsert = (inputText) => {
-    setNames(names.concat({ id: names.length + 1, text: inputText }));
+    setNames(names.concat({ id: nextId + 1, text: inputText }));
     setNextId(nextId + 1);
   };
 
