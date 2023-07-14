@@ -37,8 +37,9 @@ class LifeCycleSample extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     // 잠시 후 상황에 따라 render9) 함수를 호출 할 수 있게 조건을 추가할 것
     // return true : render 호출
-    console.log('shouldComponentUpdate() ...');
-    return true;
+    // return false : render 호출 안함
+    console.log('shouldComponentUpdate() ...', nextProps, nextState);
+    return nextState.number % 10 !== 4;
   }
 
   componentWillUnmount() {
