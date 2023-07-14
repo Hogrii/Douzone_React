@@ -16,6 +16,7 @@ import IterationSample from './IterationSample';
 import IterationSampleClass from './IterationSampleClass';
 import ListComponent from './ListComponent';
 import InputComponent from './InputComponent';
+import ErrorBoundary from './ErrorBoundary';
 
 export {
   MyComponent,
@@ -36,4 +37,5 @@ export {
   IterationSampleClass,
   ListComponent,
   InputComponent,
+  ErrorBoundary,
 };
