@@ -59,7 +59,7 @@ class LifeCycleSample extends Component {
   componentDidUpdate(preProps, prevState, snapshot) {
     console.log('componentDidUpdate() ...');
     if (snapshot) {
-      console.log('업데이트 전 : ' + snapshot);
+      console.log('업데이트 전 직전 색상 : ' + snapshot);
     }
   }
 
