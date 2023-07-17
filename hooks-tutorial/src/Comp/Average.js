@@ -43,6 +43,7 @@ const Average = () => {
 
   const onClick = useCallback(
     (e) => {
+      e.preventDefault();
       setList(list.concat(parseInt(number)));
       // setAvg(getAverage(list)); // state 관리를 통해 onClick시 딱 한번만 호출
       setNumber('');
@@ -64,17 +65,10 @@ const Average = () => {
   }, [list]);
   // useMemo의 호출 시점을 확인해보자! -> 콜백함수이기 때문에 {}를 사용할 수 있음
 
-  const handlerSubmit = (e) => {
-    // EnterKey 입력시 동작하게 만드려면 form, submit이 있어야한다
-    // 추가로 img src가 있어도 된다
-    e.preventDefault();
-    return false;
-  };
-
   console.log('화면 재구성');
   return (
     <div>
-      <form name="myForm" onSubmit={handlerSubmit}>
+      <form onSubmit={onClick}>
         <input value={number} onChange={onChange} ref={inputElement} />
         <button type="submit" onClick={onClick}>
           등록
