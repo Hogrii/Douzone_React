@@ -1,10 +1,10 @@
 import './App.css';
-import { Average } from './Comp';
+import { Average2 } from './Comp';
 
 function App2() {
   return (
     <div className="App">
-      <Average />
+      <Average2 />
     </div>
   );
 }
