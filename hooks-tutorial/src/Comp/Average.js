@@ -29,8 +29,11 @@ const getAverage = (list) => {
 const Average = () => {
   const [list, setList] = useState([10, 50, 30, 70, 100]);
   const [number, setNumber] = useState('');
-  //   const [avg, setAvg] = useState(0); // 임시변수
+  //   const [avg, setAvg] = useState(0); // 임시변수, useEffect 사용하기
   const inputElement = useRef(); // 태그에 ref = {inputElement}를 할당해준다
+  const clickCount = useRef(1);
+  // clickCount = 111; 이런식으로 바꾸는걸 허용하지 않겠다
+  // clickCount 객체만 상수,, 내부에 존재하는 current는 상수가 아님 -> 변경가능
 
   //   useEffect(() => {
   //     setAvg = getAverage(list);
@@ -48,6 +51,8 @@ const Average = () => {
       // setAvg(getAverage(list)); // state 관리를 통해 onClick시 딱 한번만 호출
       setNumber('');
       inputElement.current.focus(); // input 박스에 포커스 부여하기
+      clickCount.current++;
+      console.log('clickCount -> ' + clickCount.current);
     },
     [list, number]
   );
