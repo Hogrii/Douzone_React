@@ -11,8 +11,10 @@ const Average2 = () => {
     onClick: '',
     avg: '',
   });
+
   return (
     <div>
+      {/* 컴포넌트로 바꿔보기 */}
       <form onSubmit={model.onClick}>
         <input
           value={model.number}
@@ -30,7 +32,6 @@ const Average2 = () => {
       </ul>
       <div>
         <b>평균값 : </b>
-        {/* {getAverage(list)} */}
         {model.avg}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import './App.css';
-import { Average2 } from './Comp';
+import { Average, Average2 } from './Comp';
 
 function App2() {
   return (
