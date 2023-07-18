@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import InputComponent from './comp/InputComponent';
 import ListComponent from './comp/ListComponent';
 
+function model(state, action) {}
+
 const App11 = () => {
   const [names, setNames] = useState([
     { id: 1, text: '눈사람' },
