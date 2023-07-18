@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   MdCheckBoxOutlineBlank,
   MdRemoveCircleOutline,
@@ -9,15 +9,18 @@ import cn from 'classnames';
 
 const TodoListItem = ({ todo, removeTodo, onToggle }) => {
   const { title, checked } = todo;
-  const onClickRemove = (e) => {
-    removeTodo(todo.id);
-  };
+  const onClickRemove = useCallback(
+    (e) => {
+      removeTodo(todo.id);
+    },
+    [todo]
+  );
 
   /*
   // 필요하면 주석 풀고 사용
-  const onChangeChecked = (e) => {
+  const onChangeChecked = useCallBack((e) => {
     changeChecked(todo.id);
-  };
+  });
    */
 
   return (
@@ -37,4 +40,5 @@ const TodoListItem = ({ todo, removeTodo, onToggle }) => {
   );
 };
 
-export default TodoListItem;
+export default React.memo(TodoListItem);
+// React.memo() 로 감싸주면 캐싱이 된다
