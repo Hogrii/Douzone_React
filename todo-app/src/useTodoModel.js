@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useRef } from 'react';
 import { useCallback } from 'react';
 
 const createBulkTodos = () => {
@@ -34,18 +34,30 @@ setTodos((todos) =>
 const reducer = (state, action) => {
   switch (action.type) {
     case 'insertTodo':
-      const insertState = state.concat({
-        id: state.length + 1,
-        checked: false,
-        title: action.value,
-      });
-      return insertState;
+      return state.concat(action.todo);
     case 'removeTodo':
       return state.filter((todo) => todo.id !== action.id);
     case 'onToggle':
       return state.map((todo) =>
         todo.id === action.id ? { ...todo, checked: !todo.checked } : todo
       );
+
+    // 이진탐색
+    // let left = 0;
+    // let right = todos.length - 1;
+    // let targetIndex = -1;
+    // while (left <= right) {
+    //   let index = Math.floor((left + right) / 2);
+    //   if (todos[index].id === action.id) {
+    //     targetIndex = index;
+    //     break;
+    //   } else if (todos[index].id > action.id) {
+    //     right = index - 1;
+    //   } else left = index + 1;
+    // }
+    // todos[targetIndex].checked = !todos[targetIndex].checked;
+    // return [...todos];
+
     default:
       return state;
   }
@@ -54,7 +66,7 @@ const reducer = (state, action) => {
 const useTodoModel = () => {
   const [state, dispatch] = useReducer(reducer, createBulkTodos());
   //   const [todos, setTodos] = useState(createBulkTodos);
-  //   const nextId = useRef(state.length + 1);
+  const nextId = useRef(state.length + 1);
 
   /*
     const insertTodo = useCallback(
@@ -72,7 +84,14 @@ const useTodoModel = () => {
      */
 
   const insertTodo = useCallback((value) => {
-    dispatch({ type: 'insertTodo', value: value });
+    dispatch({
+      type: 'insertTodo',
+      todo: {
+        id: nextId.current++,
+        checked: false,
+        title: value,
+      },
+    });
   }, []);
   // 랜더링을 할때마다 코드를 계속 만들어야한다 -> react의 특징
 
