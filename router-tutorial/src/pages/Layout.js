@@ -10,7 +10,17 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>copy right 더존 5기</footer>
+      <footer>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h1>copy right 더존 5기</h1>
+        </div>
+      </footer>
     </div>
   );
 };
