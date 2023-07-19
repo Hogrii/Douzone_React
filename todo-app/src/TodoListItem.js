@@ -7,7 +7,7 @@ import {
 import './TodoListItem.scss';
 import cn from 'classnames';
 
-const TodoListItem = ({ todo, removeTodo, onToggle }) => {
+const TodoListItem = ({ todo, removeTodo, onToggle, style }) => {
   const { title, checked } = todo;
   const onClickRemove = useCallback(
     (e) => {
@@ -24,17 +24,19 @@ const TodoListItem = ({ todo, removeTodo, onToggle }) => {
    */
 
   return (
-    <div className="TodoListItem">
-      <div
-        className={cn('checkbox', { checked })}
-        onClick={() => onToggle(todo.id)}
-        /* onChangeChecked={onChangeChecked} */
-      >
-        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-        <div className="text">{title}</div>
-      </div>
-      <div className="remove" onClick={onClickRemove}>
-        <MdRemoveCircleOutline />
+    <div className="TodoListItem-virtualized" style={style}>
+      <div className="TodoListItem">
+        <div
+          className={cn('checkbox', { checked })}
+          onClick={() => onToggle(todo.id)}
+          /* onChangeChecked={onChangeChecked} */
+        >
+          {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+          <div className="text">{title}</div>
+        </div>
+        <div className="remove" onClick={onClickRemove}>
+          <MdRemoveCircleOutline />
+        </div>
       </div>
     </div>
   );

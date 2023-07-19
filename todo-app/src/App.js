@@ -4,12 +4,14 @@ import TodoList from './TodoList';
 import TodoTemplate from './TodoTemplate';
 import useTodoModel from './useTodoModel';
 
+//todos={state} removeTodo={removeTodo} onToggle={onToggle}
 function App() {
-  const { state, insertTodo, removeTodo, onToggle } = useTodoModel();
+  // const { state, insertTodo, removeTodo, onToggle } = useTodoModel();
+  const model = useTodoModel();
   return (
     <TodoTemplate>
-      <TodoInsert insertTodo={insertTodo} />
-      <TodoList todos={state} removeTodo={removeTodo} onToggle={onToggle} />
+      <TodoInsert insertTodo={model.insertTodo} />
+      <TodoList model={model} />
     </TodoTemplate>
   );
 }

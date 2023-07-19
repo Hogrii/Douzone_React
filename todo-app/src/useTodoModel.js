@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 
 const createBulkTodos = () => {
   const array = [];
-  for (let i = 1; i < 5; i++) {
+  for (let i = 1; i < 25000; i++) {
     array.push({
       id: i,
       checked: i % 3 === 0,
