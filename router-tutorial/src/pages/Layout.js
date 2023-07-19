@@ -7,7 +7,7 @@ const Layout = () => {
       <header style={{ background: "lightgray", padding: 16, fontSize: 24 }}>
         Header
       </header>
-      <main>
+      <main style={{ minHeight: "550px" }}>
         <Outlet />
       </main>
       <footer>
