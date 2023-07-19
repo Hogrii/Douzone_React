@@ -12,7 +12,7 @@ const About = () => {
     // setSearchParams({ mode });
     // about?detai=true&mode=1에서 detail=true를 없애고 mode=1만 남겨놓는다
     // 관리자도구창 Network에 아무 변화가 없는걸 보면 server로부터 가져오는게 없는 것을 알 수 있다
-    setSearchParams({ mode, detail: detail === "true" ? false : true });
+    setSearchParams({ detail: detail === "true" ? false : true, mode });
     // about?detai=true&mode=1에서 detail이 true면 false로, false면 true로 값을 바꾼다
   };
 
