@@ -16,7 +16,7 @@ const NewsListBlock = styled.div`
   }
 `;
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
   //상태 변수로 관리 (목록, 로딩중)
   //1. 서버에서 자료를 로딩한다 -> 비동기
   //2. 서버에 요청한 자료가 로딩중 일때는 화면에 로딩중 ...
@@ -24,11 +24,10 @@ const NewsList = () => {
   const [articles, setArticles] = useState(null); //[article, article, article, article];
   const [loading, setLoading] = useState(false);
 
+  /*
   const fetchData = useCallback(async () => {
     // 데이터가 가져와지기 전에 다음으로 넘어가지 못하게 막는다
-    const response = await axios.get(
-      'https://newsapi.org/v2/top-headlines?country=kr&apiKey=ae3df86896064a709c97f5898afccbc5'
-    );
+    const response = await axios.get();
     setArticles(response.data.articles);
     //서버에 요청한 자료가 로딩 완료되면 완료 설정
     setLoading(false); // 데이터를 가져온 후 Loading 상태를 false로 변경
@@ -51,6 +50,25 @@ const NewsList = () => {
       console.log(e);
     }
   }, []);
+   */
+
+  useEffect(() => {
+    // async를 사용하는 함수 따로 선언
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const query = category === 'all' ? '' : `&category=${category}`;
+        const response = await axios.get(
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=0a8c4202385d4ec1bb93b7e277b3c51f`
+        );
+        setArticles(response.data.articles);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, [category]);
 
   if (loading) {
     // loading 값이 true면 로딩 메시지
