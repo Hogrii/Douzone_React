@@ -1,14 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
-import axios from 'axios';
 import NewsList from './components/NewsList';
+import Categories from './components/Categories';
+import { useCallback, useState } from 'react';
 
 // 사용할 JSON 데이터
 // jsonplaceholder.typicode.com/todos
 
 function App() {
-  const [data, setData] = useState('안녕하세요');
+  // const [data, setData] = useState('안녕하세요');
 
   /*
   const add = (a, b) => {
@@ -16,12 +15,12 @@ function App() {
   };
    */
 
-  const onClick = async () => {
-    // const sum = add(10, 20);
-    // 서버에서 자료를 얻어서 설정하면 된다
-    // await을 사용하면 해당 작업이 모두 수행될때까지 대기한다
-    // await과 async는 짝을 이룬다.. await을 사용하면 항상 async를 붙여주어야 한다
-    /*
+  // const onClick = async () => {
+  // const sum = add(10, 20);
+  // 서버에서 자료를 얻어서 설정하면 된다
+  // await을 사용하면 해당 작업이 모두 수행될때까지 대기한다
+  // await과 async는 짝을 이룬다.. await을 사용하면 항상 async를 붙여주어야 한다
+  /*
     // async-await 방식
     const response = await fetch(
       'https://jsonplaceholder.typicode.com/todos/1'
@@ -30,6 +29,7 @@ function App() {
     setData(JSON.stringify(jsonData));
      */
 
+  /*
     // axios 방식
     try {
       const response = await axios.get(
@@ -39,8 +39,9 @@ function App() {
     } catch (e) {
       console.log(e);
     }
+   */
 
-    /*
+  /*
     // fetch 방식
     fetch('https://jsonplaceholder.typicode.com/todos/1') // then은 당장 실행하는 것이 아니고 해당 작업이 완료된 이후에 호출하는 후처리 함수이다
       // 상태코드 결과
@@ -60,9 +61,10 @@ function App() {
       .catch((error) => {
         console.error(error);
       });
-      */
-  };
+   */
+  // };
 
+  /*
   const article = {
     title:
       '‘P의 거짓’, 소울라이크 본고장 일본서 오프라인 행사 개최한다 - 게임플',
@@ -74,9 +76,16 @@ function App() {
   };
 
   const articles = [article, article, article, article];
+   */
+
+  const [category, setCategory] = useState('all');
+  const onSelect = useCallback((category) => setCategory(category), []);
+  // 카테고리 최초값을 전체보기로 설정
+
   return (
     <div>
-      <NewsList articles={articles} />
+      <Categories category={category} onSelect={onSelect} />
+      <NewsList category={category} />
     </div>
   );
 }
