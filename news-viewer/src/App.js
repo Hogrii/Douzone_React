@@ -1,7 +1,6 @@
 import './App.css';
-import NewsList from './components/NewsList';
-import Categories from './components/Categories';
-import { useCallback, useState } from 'react';
+import { Routes, Route } from '../node_modules/react-router-dom/dist/index';
+import NewsPage from './pages/NewsPage';
 
 // 사용할 JSON 데이터
 // jsonplaceholder.typicode.com/todos
@@ -78,15 +77,18 @@ function App() {
   const articles = [article, article, article, article];
    */
 
-  const [category, setCategory] = useState('all');
-  const onSelect = useCallback((category) => setCategory(category), []);
-  // 카테고리 최초값을 전체보기로 설정
+  /*
+    // 라우터 적용으로 인해 주석처리
+    // 카테고리 최초값을 전체보기로 설정
+    const [category, setCategory] = useState('all');
+    const onSelect = useCallback((category) => setCategory(category), []);
+   */
 
   return (
-    <div>
-      <Categories category={category} onSelect={onSelect} />
-      <NewsList category={category} />
-    </div>
+    <Routes>
+      <Route path="/" element={<NewsPage />} />
+      <Route path="/:category" element={<NewsPage />} />
+    </Routes>
   );
 }
 
