@@ -9,12 +9,9 @@ import cn from 'classnames';
 
 const TodoListItem = ({ todo, removeTodo, onToggle, style }) => {
   const { title, checked } = todo;
-  const onClickRemove = useCallback(
-    (e) => {
-      removeTodo(todo.id);
-    },
-    [todo]
-  );
+  const onClickRemove = useCallback((e) => {
+    removeTodo(todo.id);
+  }, []);
 
   /*
   // 필요하면 주석 풀고 사용
