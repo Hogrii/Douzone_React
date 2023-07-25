@@ -1,12 +1,11 @@
-import ColorBox from "./ColorBox";
+import ColorBox from './ColorBox';
 
 function ColorApp() {
   return (
-      <>
-        <ColorBox />
-      </>
+    <>
+      <ColorBox />
+    </>
   );
-  
 }
 
 export default ColorApp;

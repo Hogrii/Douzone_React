@@ -1,5 +1,5 @@
-const { createContext } = require("react");
+const { createContext } = require('react');
 
-const ColorContext = createContext({color:'black'});
+const ColorContext = createContext({ color: 'black' });
 
 export default ColorContext;
