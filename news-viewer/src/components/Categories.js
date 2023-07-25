@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const categories = [
@@ -90,6 +90,8 @@ const Categories = () => {
       {categories.map((c) => (
         <Category
           key={c.name}
+          // NavLink는 Route의 경로와 현재 경로가 일치할때 사용 가능한 컴포넌트스타일이다
+          // NavLink가 활성화되면 isActive를 사용할 수 있다
           className={({ isActive }) => (isActive ? 'active' : undefined)}
           to={c.name === 'all' ? '/' : `/${c.name}`}
         >

@@ -10,26 +10,23 @@ state를 사용하면 반드시 부모에서 자식으로 속성(porps)을 전�
 이코드를 좀더 나은 코드로 변경한 것이 context8 예제 임 
 */
 function AppState() {
-  
-  const [state, setState] = useState({color:'black',subject:'red'});
+  const [state, setState] = useState({ color: 'black', subject: 'red' });
 
   const actions = {
-    setColor : color => {
-      setState({...state, color});
-    }, 
-    setSubject : subject => {
-      setState({...state, subject});
-    }
+    setColor: (color) => {
+      setState({ ...state, color });
+    },
+    setSubject: (subject) => {
+      setState({ ...state, subject });
+    },
   };
 
   return (
-      <div >
-          <ColorComponent state={state} actions={actions}/>
-          <TextColorBox state={state}></TextColorBox>
-      </div>
+    <div>
+      <ColorComponent state={state} actions={actions} />
+      <TextColorBox state={state}></TextColorBox>
+    </div>
   );
-  
- 
 }
 
 export default AppState;
