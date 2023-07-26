@@ -89,7 +89,6 @@ const useTodoModel = () => {
   };
 
   const insertTodo = useCallback((value) => {
-    console.log(value);
     axios
       .post(
         '/insert',
@@ -97,9 +96,6 @@ const useTodoModel = () => {
         { headers: { 'Content-type': 'application/json' } }
       )
       .then((response) => {
-        console.log(response);
-        console.log(response.data.id);
-        console.log(response.data);
         dispatch({
           type: 'insertTodo',
           todo: {
