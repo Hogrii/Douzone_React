@@ -5,7 +5,7 @@ import { List } from 'react-virtualized';
 
 const TodoList = ({ model }) => {
   const rowRenderer = ({ index, key, style }) => {
-    const todo = model.state[index];
+    const todo = model.todos[index];
     return (
       <TodoListItem
         todo={todo}
@@ -35,7 +35,7 @@ const TodoList = ({ model }) => {
       className="TodoList"
       width={512}
       height={513}
-      rowCount={model.state.length} // rowCount * rowHeight = 스크롤양(사이즈)
+      rowCount={model.todos.length} // rowCount * rowHeight = 스크롤양(사이즈)
       rowHeight={57}
       rowRenderer={rowRenderer} // callBack
       list={model.list}

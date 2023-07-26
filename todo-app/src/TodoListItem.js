@@ -9,9 +9,14 @@ import cn from 'classnames';
 
 const TodoListItem = ({ todo, removeTodo, onToggle, style }) => {
   const { title, checked } = todo;
-  const onClickRemove = useCallback((e) => {
-    removeTodo(todo.id);
-  }, []);
+  const onClickRemove = useCallback(
+    (e) => {
+      removeTodo(todo.id);
+    },
+    [todo]
+  );
+  // javascript closer
+  // [todo]를 빼면 계속 랜더링 -> 근데 없으면 비효율적임
 
   /*
   // 필요하면 주석 풀고 사용

@@ -1,17 +1,7 @@
-import { useReducer, useRef } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 import { useCallback } from 'react';
+import axios from 'axios';
 
-const createBulkTodos = () => {
-  const array = [];
-  for (let i = 1; i < 25000; i++) {
-    array.push({
-      id: i,
-      checked: i % 3 === 0,
-      title: `리액트의 기초 알아보기 할 일 ${i}`,
-    });
-  }
-  return array;
-};
 /* 
  // 여기는 지역변수(todos)
 setTodos((todos) =>
@@ -31,14 +21,16 @@ setTodos((todos) =>
     )
 );
  */
-const reducer = (state, action) => {
+const reducer = (todos, action) => {
   switch (action.type) {
+    case 'listTodo':
+      return action.todos;
     case 'insertTodo':
-      return state.concat(action.todo);
+      return todos.concat(action.todo);
     case 'removeTodo':
-      return state.filter((todo) => todo.id !== action.id);
+      return todos.filter((todo) => todo.id !== action.id);
     case 'onToggle':
-      return state.map((todo) =>
+      return todos.map((todo) =>
         todo.id === action.id ? { ...todo, checked: !todo.checked } : todo
       );
 
@@ -59,14 +51,18 @@ const reducer = (state, action) => {
     // return [...todos];
 
     default:
-      return state;
+      return todos;
   }
 };
 
 const useTodoModel = () => {
-  const [state, dispatch] = useReducer(reducer, createBulkTodos());
+  const [todos, dispatch] = useReducer(reducer, []);
   //   const [todos, setTodos] = useState(createBulkTodos);
-  const nextId = useRef(state.length + 1);
+  const nextId = useRef(todos.length + 1);
+
+  useEffect(() => {
+    todoList();
+  }, []);
 
   /*
     const insertTodo = useCallback(
@@ -83,20 +79,54 @@ const useTodoModel = () => {
     );
      */
 
-  const insertTodo = useCallback((value) => {
-    dispatch({
-      type: 'insertTodo',
-      todo: {
-        id: nextId.current++,
-        checked: false,
-        title: value,
-      },
+  const todoList = async () => {
+    axios.get('/todoList').then((response) => {
+      dispatch({
+        type: 'listTodo',
+        todos: response.data,
+      });
     });
+  };
+
+  const insertTodo = useCallback((value) => {
+    console.log(value);
+    axios
+      .post(
+        '/insert',
+        { checked: 'F', title: value },
+        { headers: { 'Content-type': 'application/json' } }
+      )
+      .then((response) => {
+        console.log(response);
+        console.log(response.data.id);
+        console.log(response.data);
+        dispatch({
+          type: 'insertTodo',
+          todo: {
+            id: response.data,
+            checked: 'F',
+            title: value,
+          },
+        });
+      });
   }, []);
   // 랜더링을 할때마다 코드를 계속 만들어야한다 -> react의 특징
 
   const removeTodo = useCallback((id) => {
-    dispatch({ type: 'removeTodo', id: id });
+    axios
+      .post(
+        '/delete',
+        { id: id },
+        { headers: { 'Content-type': 'application/json' } }
+      )
+      .then((response) => {
+        if (parseInt(response.data) === 1) {
+          dispatch({
+            type: 'removeTodo',
+            id: id,
+          });
+        }
+      });
   }, []);
 
   const onToggle = useCallback((id) => {
@@ -116,7 +146,7 @@ const useTodoModel = () => {
     }, todos);
      */
   return {
-    state,
+    todos,
     insertTodo,
     removeTodo,
     onToggle,
