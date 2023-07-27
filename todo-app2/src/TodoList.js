@@ -5,9 +5,11 @@ import { List } from 'react-virtualized';
 import TodoContext from './TodoContext';
 
 const TodoList = () => {
-  const { state, actions } = useContext(TodoContext);
+  const { state } = useContext(TodoContext);
   const rowRenderer = ({ index, key, style }) => {
-    const todo = state[index];
+    const todo = state.todos[index];
+    return <TodoListItem todo={todo} key={key} style={style} />;
+    /*
     return (
       <TodoListItem
         todo={todo}
@@ -18,6 +20,7 @@ const TodoList = () => {
         style={style}
       />
     );
+     */
   };
 
   return (
@@ -25,10 +28,10 @@ const TodoList = () => {
       className="TodoList"
       width={512}
       height={513}
-      rowCount={state.length} // rowCount * rowHeight = 스크롤양(사이즈)
+      rowCount={state.todos.length} // rowCount * rowHeight = 스크롤양(사이즈)
       rowHeight={57}
       rowRenderer={rowRenderer} // callBack
-      list={state.todos}
+      // list={state.todos}
       style={{ outline: 'none' }}
     />
   );
