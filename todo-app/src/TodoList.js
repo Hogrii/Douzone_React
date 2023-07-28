@@ -6,6 +6,7 @@ import { List } from 'react-virtualized';
 const TodoList = ({ model }) => {
   const rowRenderer = ({ index, key, style }) => {
     const todo = model.todos[index];
+    console.log(todo);
     return (
       <TodoListItem
         todo={todo}

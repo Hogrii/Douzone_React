@@ -1,6 +1,7 @@
-import { MdAdd } from 'react-icons/md';
+import { MdAdd, MdLogout } from 'react-icons/md';
 import './TodoInsert.scss';
 import { useRef, useState } from 'react';
+import { Link } from '../node_modules/react-router-dom/dist/index';
 
 const TodoInsert = ({ insertTodo }) => {
   const [value, setValue] = useState('');
@@ -33,6 +34,11 @@ const TodoInsert = ({ insertTodo }) => {
       <button type="submit">
         <MdAdd />
       </button>
+      <Link to="/">
+        <button type="button">
+          <MdLogout />
+        </button>
+      </Link>
     </form>
   );
 };

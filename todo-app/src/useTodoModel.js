@@ -80,7 +80,7 @@ const useTodoModel = () => {
      */
 
   const todoList = async () => {
-    axios.get('/todoList').then((response) => {
+    axios.get('api/v2/todoList').then((response) => {
       dispatch({
         type: 'listTodo',
         todos: response.data,
@@ -91,7 +91,7 @@ const useTodoModel = () => {
   const insertTodo = useCallback((value) => {
     axios
       .post(
-        '/insert',
+        'api/v2/insert',
         { checked: 'F', title: value },
         { headers: { 'Content-type': 'application/json' } }
       )
@@ -111,7 +111,7 @@ const useTodoModel = () => {
   const removeTodo = useCallback((id) => {
     axios
       .post(
-        '/delete',
+        'api/v2/delete',
         { id: id },
         { headers: { 'Content-type': 'application/json' } }
       )

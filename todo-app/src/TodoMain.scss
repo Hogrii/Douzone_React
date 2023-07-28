@@ -1,0 +1,53 @@
+.TodoMain {
+  width: 512px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  border-radius: 4px;
+  overflow: hidden;
+
+  .app-title {
+    background-color: #22b8cf;
+    color: white;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: white;
+    text-align: center;
+    color: #22b8cf;
+    font-weight: bold;
+    .userId,
+    .pwd {
+      margin-bottom: 2rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      label {
+        width: 20%;
+      }
+    }
+    .btns {
+      button {
+        background-color: #22b8cf;
+        width: 5rem;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border: none;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
